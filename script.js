@@ -1,16 +1,15 @@
 // Función para abrir el widget de reserva de StickyWork
 function abrirReserva() {
-    // Buscar el botón flotante de StickyWork por su clase específica
-    const floatingButton = document.querySelector('.stickywork-floating-btn');
+    // Hacer scroll suave a la sección de contacto donde está el widget embebido
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-    if (floatingButton) {
-        floatingButton.click();
-    } else {
-        // Si aún no se ha cargado, esperar un poco y volver a intentar
+        // Enfocar el widget después del scroll
         setTimeout(() => {
-            const btn = document.querySelector('.stickywork-floating-btn');
-            if (btn) {
-                btn.click();
+            const widget = document.getElementById('stickywork-widget');
+            if (widget) {
+                widget.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }, 500);
     }
