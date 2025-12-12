@@ -23,7 +23,6 @@
                 <li><a href="#about">Nosotros</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
-            <button class="btn-reserva" onclick="hacerReserva()">Reservar Mesa</button>
         </nav>
     </header>
 
@@ -32,7 +31,6 @@
         <div class="hero-content">
             <h2>Siéntete Como en Casa</h2>
             <p>Auténtica cocina italiana con el sabor de la tradición</p>
-            <button class="btn-primary" onclick="hacerReserva()">Hacer Reserva</button>
         </div>
     </section>
 
@@ -478,16 +476,16 @@
                     </div>
                 </div>
                 <div class="reserva-form">
-                    <h3>Haz tu Reserva</h3>
-                    <form id="reservaForm" onsubmit="enviarReserva(event)">
-                        <input type="text" placeholder="Nombre completo" required>
-                        <input type="email" placeholder="Email" required>
-                        <input type="tel" placeholder="Teléfono" required>
-                        <input type="date" required>
-                        <input type="time" required>
-                        <input type="number" placeholder="Número de personas" min="1" max="20" required>
-                        <button type="submit" class="btn-primary">Confirmar Reserva</button>
-                    </form>
+                    <!-- StickyWork Widget Embebido -->
+                    <div id="stickywork-widget"></div>
+                    <script src="https://stickywork.com/widget/stickywork-widget.js"></script>
+                    <script>
+                      StickyWork.init({
+                        businessId: 9,
+                        mode: 'embedded',
+                        apiUrl: 'https://stickywork.com'
+                      });
+                    </script>
                 </div>
             </div>
         </div>
@@ -525,6 +523,19 @@
             </div>
         </div>
     </footer>
+
+    <!-- StickyWork Widget Flotante -->
+    <script src="https://stickywork.com/widget/stickywork-widget.js"></script>
+    <script>
+      StickyWork.init({
+        businessId: 9,
+        mode: 'floating',
+        apiUrl: 'https://stickywork.com',
+        position: 'bottom-right',
+        buttonText: 'Reservar',
+        buttonColor: '#3b82f6'
+      });
+    </script>
 
     <script src="script.js"></script>
 </body>
