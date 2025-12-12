@@ -44,7 +44,7 @@ function abrirReserva() {
         document.body.style.overflow = 'auto';
     }
 
-    // Buscar el botón flotante de StickyWork (está oculto con CSS)
+    // Buscar el botón flotante de StickyWork
     const floatingButton = document.querySelector('.stickywork-floating-btn');
 
     if (floatingButton) {

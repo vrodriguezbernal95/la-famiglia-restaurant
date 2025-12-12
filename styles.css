@@ -574,9 +574,3 @@ body {
     }
 }
 
-/* ===== Ocultar botón flotante de StickyWork ===== */
-.stickywork-floating-btn {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-}
