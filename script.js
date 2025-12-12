@@ -1,15 +1,26 @@
-// Función para hacer scroll a la sección de contacto
-function hacerReserva() {
-    const contactSection = document.getElementById('contact');
-    contactSection.scrollIntoView({ behavior: 'smooth' });
-
-    // Enfocar el primer campo del formulario
-    setTimeout(() => {
-        const firstInput = document.querySelector('#reservaForm input');
-        if (firstInput) {
-            firstInput.focus();
+// Función para abrir el widget de reserva de StickyWork
+function abrirReserva() {
+    // Intentar abrir el widget flotante de StickyWork
+    if (window.StickyWork && typeof window.StickyWork.open === 'function') {
+        window.StickyWork.open();
+    } else {
+        // Si no hay API, buscar el botón flotante y hacer clic
+        const floatingButton = document.querySelector('[data-stickywork-button], .stickywork-floating-button, button[class*="stickywork"]');
+        if (floatingButton) {
+            floatingButton.click();
+        } else {
+            // Como fallback, hacer scroll a la sección de contacto donde está el widget embebido
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
-    }, 500);
+    }
+}
+
+// Función antigua (ya no se usa, pero la dejo por si acaso)
+function hacerReserva() {
+    abrirReserva();
 }
 
 // Función para enviar la reserva
