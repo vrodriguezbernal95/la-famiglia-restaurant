@@ -1,38 +1,49 @@
-// Menú Hamburguesa
-const hamburger = document.getElementById('hamburger');
-const navWrapper = document.querySelector('.nav-wrapper');
-const overlay = document.getElementById('overlay');
+// Variables globales
+let hamburger, navWrapper, overlay;
 
-// Toggle del menú
-if (hamburger) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navWrapper.classList.toggle('active');
-        overlay.classList.toggle('active');
-        document.body.style.overflow = navWrapper.classList.contains('active') ? 'hidden' : 'auto';
+// Menú Hamburguesa y botones de reserva
+document.addEventListener('DOMContentLoaded', () => {
+    hamburger = document.getElementById('hamburger');
+    navWrapper = document.querySelector('.nav-wrapper');
+    overlay = document.getElementById('overlay');
+
+    // Agregar event listeners a todos los botones de reserva
+    const botonesReserva = document.querySelectorAll('.btn-reserva, .btn-reserva-about');
+    botonesReserva.forEach(boton => {
+        boton.addEventListener('click', abrirReserva);
     });
 
-    // Cerrar menú al hacer clic en un enlace
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navWrapper.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
+    // Toggle del menú
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navWrapper.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = navWrapper.classList.contains('active') ? 'hidden' : 'auto';
         });
-    });
 
-    // Cerrar menú al hacer clic en el overlay
-    if (overlay) {
-        overlay.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navWrapper.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
+        // Cerrar menú al hacer clic en un enlace
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navWrapper.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
         });
+
+        // Cerrar menú al hacer clic en el overlay
+        if (overlay) {
+            overlay.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navWrapper.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        }
     }
-}
+});
 
 // Función para abrir el widget de reserva de StickyWork
 function abrirReserva() {
