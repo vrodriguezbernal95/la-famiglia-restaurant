@@ -17,14 +17,22 @@
                 <h1>La Famiglia</h1>
                 <p class="tagline">Ristorante Italiano</p>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#menu">Menú</a></li>
-                <li><a href="#about">Nosotros</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-            <button class="btn-reserva" onclick="abrirReserva()">Reservar Mesa</button>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-wrapper">
+                <ul class="nav-menu">
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+                <button class="btn-reserva" onclick="abrirReserva()">Reservar Mesa</button>
+            </div>
         </nav>
+        <div class="overlay" id="overlay"></div>
     </header>
 
     <!-- Hero Section -->

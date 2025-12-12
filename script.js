@@ -1,5 +1,49 @@
+// Menú Hamburguesa
+const hamburger = document.getElementById('hamburger');
+const navWrapper = document.querySelector('.nav-wrapper');
+const overlay = document.getElementById('overlay');
+
+// Toggle del menú
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navWrapper.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = navWrapper.classList.contains('active') ? 'hidden' : 'auto';
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navWrapper.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+
+    // Cerrar menú al hacer clic en el overlay
+    if (overlay) {
+        overlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navWrapper.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+}
+
 // Función para abrir el widget de reserva de StickyWork
 function abrirReserva() {
+    // Cerrar el menú hamburguesa si está abierto
+    if (hamburger && navWrapper) {
+        hamburger.classList.remove('active');
+        navWrapper.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
     // Buscar el botón flotante de StickyWork (está oculto con CSS)
     const floatingButton = document.querySelector('.stickywork-floating-btn');
 
