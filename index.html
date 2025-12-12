@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Famiglia - Ristorante Italiano</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <h1>La Famiglia</h1>
+                <p class="tagline">Ristorante Italiano</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <button class="btn-reserva" onclick="hacerReserva()">Reservar Mesa</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Siéntete Como en Casa</h2>
+            <p>Auténtica cocina italiana con el sabor de la tradición</p>
+            <button class="btn-primary" onclick="hacerReserva()">Hacer Reserva</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Bienvenidos a La Famiglia</h2>
+            <div class="about-content">
+                <p>En <strong>La Famiglia</strong> te invitamos a disfrutar de la auténtica experiencia de la cocina italiana. Nuestros platos están elaborados con ingredientes frescos y recetas tradicionales que te harán sentir como en casa.</p>
+                <p>Desde nuestras pastas artesanales hasta nuestras pizzas al horno, cada bocado es una celebración del sabor italiano. Ven y descubre por qué somos el restaurante favorito de quienes buscan calidad y tradición.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title">Nuestro Menú</h2>
+
+            <!-- Entrantes -->
+            <div class="menu-category">
+                <h3 class="category-title">Entrantes</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Palitos de Pizza</h4>
+                            <span class="price">5,5 €</span>
+                        </div>
+                        <p>Con salsa de tomate triturado</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Palitos de Pizza Especial</h4>
+                            <span class="price">7,5 €</span>
+                        </div>
+                        <p>Con rúcula, tomate cherry y queso</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Tabla Mix de Embutidos y Quesos Italianos</h4>
+                            <span class="price">19 €</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Carpaccio de Ternera</h4>
+                            <span class="price">9 €</span>
+                        </div>
+                        <p>Con rúcula y parmesano</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Bravas de la Famiglia</h4>
+                            <span class="price">7 €</span>
+                        </div>
+                        <p>Con mahonesa de pesto rosso y aceite picante</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Tiras de Pollo</h4>
+                            <span class="price">7 €</span>
+                        </div>
+                        <p>Con alioli casera de queso</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Tartar de Salmón</h4>
+                            <span class="price">9 €</span>
+                        </div>
+                        <p>Con aguacate, mango y albahaca</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Steak Tartare</h4>
+                            <span class="price">12 €</span>
+                        </div>
+                        <p>Acompañado de parmesano con yema de huevo y un toque picante</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Langostinos Crujientes</h4>
+                            <span class="price">9 €</span>
+                        </div>
+                        <p>Con ali-oli</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Ensalada de Burrata</h4>
+                            <span class="price">13,5 €</span>
+                        </div>
+                        <p>Rúcula, tartar de atún con foie y huevo frito</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pastas -->
+            <div class="menu-category">
+                <h3 class="category-title">Pastas</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Spaghetti a la Carbonara</h4>
+                            <span class="price">13 €</span>
+                        </div>
+                        <p>Los tradicionales, los auténticos, hechos con guanciale, pecorino romano, yema y pimienta negra</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Spaghetti a la Carbonara con Queso Pecorino</h4>
+                            <span class="price">30 €</span>
+                        </div>
+                        <p>Hecho en el queso pecorino completo</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Tagliolini Negros</h4>
+                            <span class="price">30 €</span>
+                        </div>
+                        <p>Con trufa, huevas de lumpo y gambas rojas</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Tagliatelle al Tartufo e Formaggio</h4>
+                            <span class="price">15 €</span>
+                        </div>
+                        <p>Trufa negra con finas láminas de trufa y aceite de trufa</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Tagliatelle a la Marinara</h4>
+                            <span class="price">15 €</span>
+                        </div>
+                        <p>Mejillones, gambas, calamares, mejilones y lima</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Rigatoni al Ragú</h4>
+                            <span class="price">13 €</span>
+                        </div>
+                        <p>Boloñesa casera con salsa de tomate y carne picada en salsa de hojas de albahaca</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Rigatoni con Salsa Alfredo e Burrata</h4>
+                            <span class="price">14 €</span>
+                        </div>
+                        <p>En cremosa salsa con guanciale, yema de huevo y pimienta negra</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pasta Rellena -->
+            <div class="menu-category">
+                <h3 class="category-title">Pasta Rellena</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Ravioli de Crustáceos</h4>
+                            <span class="price">16 €</span>
+                        </div>
+                        <p>Y cremosa salsa de champiñones</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Ravioli de Carne Estofada</h4>
+                            <span class="price">16 €</span>
+                        </div>
+                        <p>Y salsa de pimienta de negra</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Ravioli Relleno de Carbonara</h4>
+                            <span class="price">15 €</span>
+                        </div>
+                        <p>Y suave salsa de queso</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Pinci con Puntas de Espárragos</h4>
+                            <span class="price">13 €</span>
+                        </div>
+                        <p>Y mascarpone</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pizzas -->
+            <div class="menu-category">
+                <h3 class="category-title">Pizzas</h3>
+                <p class="category-note">Todas las pizzas pueden ser sin gluten (+4€)</p>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Margherita</h4>
+                            <span class="price">14 €</span>
+                        </div>
+                        <p>Masa fina, tomate, mozzarella fior di latte, tomates cherry caramelizados y hojas de albahaca</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Barbacoa</h4>
+                            <span class="price">16 €</span>
+                        </div>
+                        <p>Masa fina, salsa tomate, mozzarella fior di latte, guanciale, majorica de maíz y salsa barbacoa</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Cuatro Formaggi</h4>
+                            <span class="price">16 €</span>
+                        </div>
+                        <p>Masa fina, mozzarella fior di latte, gorgonzola, emmental, parmesano y cremosas burrata</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Prosciutto</h4>
+                            <span class="price">16 €</span>
+                        </div>
+                        <p>Masa fina, mozzarella fior di latte, salsa tomate, jamón dulce y albahaca</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Prosciutto y Rúcula</h4>
+                            <span class="price">16 €</span>
+                        </div>
+                        <p>Masa fina, mozzarella fior di latte, cremosa salsa de champiñones, tomates cherry y rúcula</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Diavola</h4>
+                            <span class="price">15 €</span>
+                        </div>
+                        <p>Masa fina, mozzarella fior di latte, salsa tomate y picante salami</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Bufalina</h4>
+                            <span class="price">18 €</span>
+                        </div>
+                        <p>Masa fina, mozzarella fior di latte, salsa tomate, jamón york, champiñones, albahaca frescas y regada con aceite de trufa</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Carbonara</h4>
+                            <span class="price">15 €</span>
+                        </div>
+                        <p>Masa fina, mozzarella fior di latte, yema de huevo, guanciale, parmesano y pimienta negra</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Napolitana</h4>
+                            <span class="price">14 €</span>
+                        </div>
+                        <p>Masa fina, mozzarella fior di latte, salsa tomate, anchoas, alcaparras y aceite de oliva</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Tartufo</h4>
+                            <span class="price">15 €</span>
+                        </div>
+                        <p>Masa fina, mozzarella fior di latte, cremosa salsa de champiñones y finas láminas de trufa negra</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Bambini</h4>
+                            <span class="price">16,5 €</span>
+                        </div>
+                        <p>Especializada en salmón y langostinos. Salsa tomate, langostinos, salmón ahumado y tomates cherry</p>
+                    </div>
+                    <div class="menu-item highlight">
+                        <div class="item-header">
+                            <h4>Raise Me Montaña - La Favorita de la Casa</h4>
+                            <span class="price">17 €</span>
+                        </div>
+                        <p>Masa fina, salsa de champiñones, mousse de foie y láminas de salmón</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calzone -->
+            <div class="menu-category">
+                <h3 class="category-title">Calzone</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Calzone de Carne Mechada</h4>
+                            <span class="price">14 €</span>
+                        </div>
+                        <p>Mozzarella y salsa barbacoa</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Calzone de Jamón Dulce</h4>
+                            <span class="price">13 €</span>
+                        </div>
+                        <p>Mozzarella, parmesano y huevo</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risottos -->
+            <div class="menu-category">
+                <h3 class="category-title">Risottos</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Risotto de la Tierra</h4>
+                            <span class="price">15 €</span>
+                        </div>
+                        <p>Con boletus</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Risotto de Alta Mar</h4>
+                            <span class="price">16 €</span>
+                        </div>
+                        <p>Con sepia y gambas</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Risotto de Arroz Negro</h4>
+                            <span class="price">16 €</span>
+                        </div>
+                        <p>Con boletus, sepia y puntas de alioli de pesto</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brasa, Tierra y Mar -->
+            <div class="menu-category">
+                <h3 class="category-title">Brasa, Tierra y Mar</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Pechuga de Pollo de Corral Guarnición</h4>
+                            <span class="price">12 €</span>
+                        </div>
+                        <p>Con patatas o patatas</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Solomillo de Ternera con Guarnición</h4>
+                            <span class="price">16 €</span>
+                        </div>
+                        <p>Verduras o patatas</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Solomillo de Ternera Caramelizado</h4>
+                            <span class="price">18 €</span>
+                        </div>
+                        <p>Patatas bravas</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Secreto a la Brasa con Guarnición</h4>
+                            <span class="price">12 €</span>
+                        </div>
+                        <p>Verduras o patatas</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Presa de Pulpo a la Brasa</h4>
+                            <span class="price">18 €</span>
+                        </div>
+                        <p>Con patatas en salsa de pimiento</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Tataki de Atún</h4>
+                            <span class="price">13 €</span>
+                        </div>
+                        <p>Con aceite trufado y pan de pizza</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Parrillada de Verduras</h4>
+                            <span class="price">12 €</span>
+                        </div>
+                        <p>Con salsa pesto de albahaca</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Postres -->
+            <div class="menu-category">
+                <h3 class="category-title">Postres</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Cheesecake Casera</h4>
+                            <span class="price">6,5 €</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Pizza de Nutella</h4>
+                            <span class="price">8 €</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Tiramisú</h4>
+                            <span class="price">6,5 €</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Bizcocho Tres Leches</h4>
+                            <span class="price">6,5 €</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h4>Coulant de Chocolate</h4>
+                            <span class="price">6,5 €</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Visítanos</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h3>Horarios</h3>
+                        <p>Lunes a Viernes: 13:00 - 16:00 / 20:00 - 23:30</p>
+                        <p>Sábados y Domingos: 13:00 - 23:30</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Ubicación</h3>
+                        <p>Calle Ejemplo 123</p>
+                        <p>28001 Madrid, España</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Contacto</h3>
+                        <p>Teléfono: <a href="tel:+34912345678">+34 912 345 678</a></p>
+                        <p>Email: <a href="mailto:info@lafamiglia.es">info@lafamiglia.es</a></p>
+                    </div>
+                </div>
+                <div class="reserva-form">
+                    <h3>Haz tu Reserva</h3>
+                    <form id="reservaForm" onsubmit="enviarReserva(event)">
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="tel" placeholder="Teléfono" required>
+                        <input type="date" required>
+                        <input type="time" required>
+                        <input type="number" placeholder="Número de personas" min="1" max="20" required>
+                        <button type="submit" class="btn-primary">Confirmar Reserva</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>La Famiglia</h3>
+                    <p class="tagline">Ristorante Italiano</p>
+                    <p>Siéntete como en casa</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#menu">Menú</a></li>
+                        <li><a href="#about">Nosotros</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 La Famiglia - Ristorante Italiano. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
