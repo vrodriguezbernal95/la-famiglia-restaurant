@@ -1,15 +1,36 @@
 // Función para abrir el widget de reserva de StickyWork
 function abrirReserva() {
-    // Intentar abrir el widget flotante de StickyWork
-    if (window.StickyWork && typeof window.StickyWork.open === 'function') {
-        window.StickyWork.open();
-    } else {
-        // Si no hay API, buscar el botón flotante y hacer clic
-        const floatingButton = document.querySelector('[data-stickywork-button], .stickywork-floating-button, button[class*="stickywork"]');
-        if (floatingButton) {
-            floatingButton.click();
+    // Buscar el botón flotante de StickyWork con múltiples selectores
+    const selectors = [
+        '[id*="stickywork"]',
+        '[class*="stickywork"]',
+        'button[class*="floating"]',
+        'div[class*="widget"] button',
+        '[data-stickywork]',
+        'iframe[src*="stickywork"]'
+    ];
+
+    let found = false;
+    for (const selector of selectors) {
+        const elements = document.querySelectorAll(selector);
+        for (const element of elements) {
+            if (element.offsetParent !== null) { // Verificar que sea visible
+                element.click();
+                found = true;
+                break;
+            }
+        }
+        if (found) break;
+    }
+
+    // Si no encontró nada, intentar con la API de StickyWork
+    if (!found) {
+        if (window.StickyWork && typeof window.StickyWork.open === 'function') {
+            window.StickyWork.open();
+        } else if (window.StickyWork && typeof window.StickyWork.show === 'function') {
+            window.StickyWork.show();
         } else {
-            // Como fallback, hacer scroll a la sección de contacto donde está el widget embebido
+            // Como último recurso, hacer scroll a la sección con el widget embebido
             const contactSection = document.getElementById('contact');
             if (contactSection) {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
