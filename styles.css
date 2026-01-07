@@ -403,6 +403,24 @@ body {
     border-color: var(--color-accent);
 }
 
+.reserva-info {
+    text-align: center;
+    padding: 2rem;
+}
+
+.reserva-info h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.reserva-info p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
 /* ===== Footer ===== */
 .footer {
     background: var(--color-primary);
@@ -572,5 +590,81 @@ body {
     .section-title {
         font-size: 2rem;
     }
+}
+
+/* ===== StickyWork Widget - Z-index Fix ===== */
+.stickywork-modal {
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+}
+
+.stickywork-widget,
+.stickywork-form {
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+}
+
+.stickywork-calendar-dropdown {
+    position: relative !important;
+    z-index: 100000 !important;
+}
+
+.stickywork-calendar-trigger {
+    z-index: 100001 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+.stickywork-calendar-dropdown-content {
+    z-index: 100002 !important;
+    pointer-events: auto !important;
+}
+
+.stickywork-custom-select {
+    position: relative !important;
+    z-index: 100000 !important;
+}
+
+.stickywork-custom-select-trigger {
+    z-index: 100001 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+.stickywork-custom-select-dropdown {
+    z-index: 100002 !important;
+    pointer-events: auto !important;
+}
+
+.stickywork-custom-select-option {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* Asegurar que NADA bloquee el widget */
+.overlay.active {
+    pointer-events: none !important;
+}
+
+/* Forzar visibilidad del calendario cuando esté activo */
+.stickywork-calendar-dropdown.active .stickywork-calendar-dropdown-content,
+.stickywork-calendar-dropdown-content.active,
+.stickywork-calendar-dropdown-content[style*="display: block"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 100003 !important;
+    pointer-events: auto !important;
+}
+
+/* Forzar visibilidad del dropdown de horas cuando esté activo */
+.stickywork-custom-select.active .stickywork-custom-select-dropdown,
+.stickywork-custom-select-dropdown.active,
+.stickywork-custom-select-dropdown[style*="display: block"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 100003 !important;
+    pointer-events: auto !important;
 }
 

@@ -8,9 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay = document.getElementById('overlay');
 
     // Agregar event listeners a todos los botones de reserva
-    const botonesReserva = document.querySelectorAll('.btn-reserva, .btn-reserva-about');
+    const botonesReserva = document.querySelectorAll('.btn-reserva, .btn-reserva-about, .btn-reserva-formulario');
     botonesReserva.forEach(boton => {
-        boton.addEventListener('click', abrirReserva);
+        boton.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            abrirReserva();
+        });
     });
 
     // Toggle del menú
@@ -47,6 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Función para abrir el widget de reserva de StickyWork
 function abrirReserva() {
+    console.log('🔵 Intentando abrir reserva...');
+
     // Cerrar el menú hamburguesa si está abierto
     if (hamburger && navWrapper) {
         hamburger.classList.remove('active');
@@ -55,20 +61,73 @@ function abrirReserva() {
         document.body.style.overflow = 'auto';
     }
 
-    // Buscar el botón flotante de StickyWork
-    const floatingButton = document.querySelector('.stickywork-floating-btn');
-
-    if (floatingButton) {
-        floatingButton.click();
-    } else {
-        // Si aún no se ha cargado, esperar un poco y volver a intentar
-        setTimeout(() => {
-            const btn = document.querySelector('.stickywork-floating-btn');
-            if (btn) {
-                btn.click();
-            }
-        }, 500);
+    // Opción 1: Intentar usar la API de StickyWork directamente
+    if (window.StickyWork && typeof window.StickyWork.open === 'function') {
+        console.log('✅ Usando API de StickyWork.open()');
+        window.StickyWork.open();
+        return;
     }
+
+    if (window.StickyWork && typeof window.StickyWork.show === 'function') {
+        console.log('✅ Usando API de StickyWork.show()');
+        window.StickyWork.show();
+        return;
+    }
+
+    if (window.StickyWork && typeof window.StickyWork.openWidget === 'function') {
+        console.log('✅ Usando API de StickyWork.openWidget()');
+        window.StickyWork.openWidget();
+        return;
+    }
+
+    // Opción 2: Buscar y hacer clic en el botón flotante
+    console.log('⚠️ API no encontrada, buscando botón flotante...');
+
+    // Esperar un poco si el widget aún no se ha cargado
+    setTimeout(() => {
+        const selectors = [
+            '.stickywork-floating-btn',
+            '.stickywork-button',
+            '[class*="stickywork"][class*="btn"]',
+            '[class*="stickywork"][class*="float"]',
+            'button[class*="stickywork"]',
+            'div[class*="stickywork"][class*="button"]',
+            'iframe[src*="stickywork"]'
+        ];
+
+        // Buscar el botón flotante
+        for (const selector of selectors) {
+            const elements = document.querySelectorAll(selector);
+
+            if (elements.length > 0) {
+                // Hacer click en el primer elemento visible
+                const visibleElement = Array.from(elements).find(el => {
+                    const style = window.getComputedStyle(el);
+                    return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0';
+                });
+
+                if (visibleElement) {
+                    console.log('✅ Haciendo click en:', visibleElement);
+
+                    // Si es un iframe, intentar acceder al contenido
+                    if (visibleElement.tagName === 'IFRAME') {
+                        console.log('⚠️ Elemento es un iframe, no se puede hacer click directamente');
+                        console.log('💡 Por favor, usa el botón flotante visible en la página');
+                    } else {
+                        visibleElement.click();
+                    }
+                    return;
+                }
+            }
+        }
+
+        // Si no se encuentra nada, mostrar mensaje de ayuda
+        console.log('❌ No se encontró el widget de StickyWork');
+        console.log('💡 Por favor, usa el botón "Reservar Mesa" flotante en la esquina inferior derecha');
+
+        // Mostrar alerta al usuario
+        alert('Por favor, usa el botón "Reservar Mesa" flotante que aparece en la esquina inferior derecha de la página.');
+    }, 100);
 }
 
 // Función antigua (ya no se usa, pero la dejo por si acaso)
@@ -207,6 +266,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // Smooth scroll para los enlaces del menú de navegación
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        // NO interferir con elementos dentro del widget de StickyWork
+        if (this.closest('[class*="stickywork"]') || this.closest('[id*="stickywork"]')) {
+            return;
+        }
+
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
